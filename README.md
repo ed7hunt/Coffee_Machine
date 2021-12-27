@@ -3,4 +3,4 @@ This folder was made to archive an intelligent coffee machine I build for a clas
 
 The program was designed to satisfy all the requirements in the PDF located in this folder.<br>
 <br>
-The IDE I used to build and upload this to GitHub was <a href="https://www.jetbrains.com/idea/">Intelli-J IDEA</a>.
+The IDE I used to build and upload this to GitHub was <a href="https://www.jetbrains.com/idea/"><b>Intelli-J IDEA</b></a>.
