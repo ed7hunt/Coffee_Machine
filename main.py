@@ -51,11 +51,10 @@ def get_menu_choice(available_resources, money_collected):
 
 def deposit_money():
     print("Please insert coins.")
-    quarters = int(input("how many quarters?: "))
-    dimes = int(input("how many dimes?: "))
-    nickles = int(input("how many nickles?: "))
-    pennies = int(input("how many pennies?: "))
-    money = 0.25 * quarters + 0.1 * dimes + 0.05 * nickles + 0.01 * pennies
+    money = int(input("how many quarters?: ")) * 0.25
+    money += int(input("how many dimes?: ")) * 0.10
+    money += int(input("how many nickles?: ")) * 0.05
+    money += int(input("how many pennies?: ")) * 0.01
     return money
 
 
@@ -68,6 +67,11 @@ def customer_menu(available_resources, money_collected):
 
 def check_ingredients(available_resources, ingredients):
     # print(available_resources)
+    for each_item in ingredients:
+        if available_resources[each_item] < ingredients[each_item]:
+            print(f"There is not enough {each_item}.")
+            return False
+    ''' the above lines do the same thing as the older version lines
     try:
         if available_resources['water'] < ingredients['water']:
             print("There is not enough water.")
@@ -86,10 +90,14 @@ def check_ingredients(available_resources, ingredients):
             return False
     except KeyError:
         ignore = True
+    '''
     return True
 
 
 def deduct_ingredients(available_resources, ingredients):
+    for each_item in ingredients:
+        available_resources[each_item] -= ingredients[each_item]
+    ''' the above lines do the same thing as the older version lines   
     try:
         available_resources['water'] -= ingredients['water']
     except KeyError:
@@ -103,6 +111,7 @@ def deduct_ingredients(available_resources, ingredients):
     except KeyError:
         ignore = True
     # print(available_resources)
+    '''
     return available_resources
 
 
